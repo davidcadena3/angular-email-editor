@@ -28,6 +28,7 @@ let lastEditorId = 0;
 export class EmailEditorComponent implements OnInit, AfterViewInit {
 
   @Input() editorId: string;
+  @Input() displayMode: string;
   @Input() options: UnlayerOptions = {};
   @Input() projectId: number;
   @Input() tools: object;
@@ -72,7 +73,7 @@ export class EmailEditorComponent implements OnInit, AfterViewInit {
     this.editor = unlayer.createEditor({
       ...options,
       id: this.editorId,
-      displayMode: 'email',
+      displayMode: this.displayMode,
       source: {
         name: pkg.name,
         version: pkg.version,
